@@ -66,8 +66,9 @@ Request body: { \
 }
 
 ## Example code
-**In order to run the example code, you need to set the `THE_BRAWL_EMAIL` and `THE_BRAWL_PASSWORD` environment variables with your login credentials to The Brawl platform. You can see the `export THE_BRAWL_EMAIL=<your_email>` and `export THE_BRAWL_PASSWORD=<your_password>` commands in BASH.** \
-![example.py](example.py)
+**In order to run the example code, you need to set the `THE_BRAWL_EMAIL` and `THE_BRAWL_PASSWORD` environment variables with your login credentials to The Brawl platform. You can see the `export THE_BRAWL_EMAIL=<your_email>` and `export THE_BRAWL_PASSWORD=<your_password>` commands in BASH.**
+
+[example.py](example.py)
 ```python
 from os import environ
 import requests
@@ -95,4 +96,4 @@ res = requests.post(TRANSACTION_URL, headers={
 ```
 
 ## Note
-In order to get the information about exchange rates, you need to integrate in your algorithm a data source like ![CoinBase](https://docs.cloud.coinbase.com/sign-in-with-coinbase/docs) or ![CoinGecko](https://www.coingecko.com/api/documentation).
+In order to get the information about exchange rates, you need to integrate in your algorithm a data source like [CoinBase](https://docs.cloud.coinbase.com/sign-in-with-coinbase/docs) or [CoinGecko](https://www.coingecko.com/api/documentation).
