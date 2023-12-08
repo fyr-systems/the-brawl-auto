@@ -1,20 +1,26 @@
 # The Brawl trading API guide
 Enabling algorithmic trading on The Brawl platform
 
-POST http://platform.the-brawl.eu/api/transaction \
-Request body: {
+## Transaction request
 
-`sourceWalletId`: Source wallet ID available from the UI
+### POST http://platform.the-brawl.eu/api/transaction
+#### Request body: {
 
-`destWalletId`: Destination wallet ID available from the UI
+`sourceWalletId`: Source wallet ID available from the UI (see below)
 
-`amountFromSourceWallet`: Number of the currency units to sell from the source wallet
+`destWalletId`: Destination wallet ID available from the UI (see below)
 
-`amountToDestWallet`: Number of the currency units to buy
+`amountFromSourceWallet`: [excludable with `amountToDestWallet`] Number of the currency units to sell from the source wallet
 
-`exchangeRate`: Transaction will be rejected if set exchange rate is worse at the moment of execution (it's always the rate *DESTINATION_CURRENCY/SOURCE_CURRENCY*, see examples below)
+`amountToDestWallet`: [excludable with `amountFromSourceWallet`] Number of the currency units to buy
 
-}
+`exchangeRate`: [*OPTIONAL*] Transaction will be rejected if set exchange rate is worse at the moment of execution (it's always the rate *DESTINATION_CURRENCY/SOURCE_CURRENCY*, see examples below)
+
+#### }
+
+#### Header:
+
+`Authorization`: `Bearer <id_token>` (see Python code example)
 
 ## Where to find wallet IDs
 ![Wallet IDs](wallet-ids.png "Where to find wallet IDs")
