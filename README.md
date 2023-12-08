@@ -66,6 +66,7 @@ Request body: { \
 }
 
 ## Example code
+**In order to run the example code, you need to set the `THE_BRAWL_EMAIL` and `THE_BRAWL_PASSWORD` environment variables with your login credentials to The Brawl platform. You can see the `export THE_BRAWL_EMAIL=<your_email>` and `export THE_BRAWL_PASSWORD=<your_password>` commands in BASH.** \
 ![example.py](example.py)
 ```python
 from os import environ
