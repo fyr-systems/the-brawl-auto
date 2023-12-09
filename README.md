@@ -1,6 +1,9 @@
 # The Brawl trading API guide
 Enabling algorithmic trading on The Brawl platform
 
+## Exchange rates data
+In order to get the information about exchange rates, you need to integrate in your algorithm a data source like [CoinBase](https://docs.cloud.coinbase.com/sign-in-with-coinbase/docs) or [CoinGecko](https://www.coingecko.com/api/documentation).
+
 ## Transaction request
 
 ### POST http://platform.the-brawl.eu/api/transaction
@@ -172,6 +175,3 @@ print(res.json())
 ]
 """
 ```
-
-## Note
-In order to get the information about exchange rates, you need to integrate in your algorithm a data source like [CoinBase](https://docs.cloud.coinbase.com/sign-in-with-coinbase/docs) or [CoinGecko](https://www.coingecko.com/api/documentation).
