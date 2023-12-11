@@ -17,7 +17,7 @@ In order to get the information about exchange rates, you need to integrate in y
 
 `amountToDestWallet`: [excludable with `amountFromSourceWallet`] Number of the currency units to buy
 
-`exchangeRate`: [*OPTIONAL*] Transaction will be rejected if set exchange rate is worse at the moment of execution (it's always the rate *DESTINATION_CURRENCY/SOURCE_CURRENCY*, see examples below)
+`exchangeRate`: [*OPTIONAL*] Transaction will be rejected if (at the moment of execution) the current exchange rate is higher than given `exchangeRate` (it's always the rate *SOURCE_CURRENCY/DESTINATION_CURRENCY*, see examples below)
 
 #### }
 
@@ -58,7 +58,7 @@ Request body: { \
 `sourceWalletId`: `<USD_wallet_ID>` \
 `destWalletId`: `<BTC_wallet_ID>` \
 `amountFromSourceWallet`: 10 \
-`exchangeRate`: `<requested_exchange_rate_boundary> [BTC/USD rate]` \
+`exchangeRate`: `<highest_acceptable_exchange_rate> [USD/BTC rate]` \
 }
 
 ### Buying 5 BTC for USD
@@ -67,7 +67,7 @@ Request body: { \
 `sourceWalletId`: `<USD_wallet_ID>` \
 `destWalletId`: `<BTC_wallet_ID>` \
 `amountToDestWallet`: 5 \
-`exchangeRate`: `<requested_exchange_rate_boundary> [BTC/USD rate]` \
+`exchangeRate`: `<highest_acceptable_exchange_rate> [USD/BTC rate]` \
 }
 
 ### Buying USD for 20 ETH
@@ -76,7 +76,7 @@ Request body: { \
 `sourceWalletId`: `<ETH_wallet_ID>` \
 `destWalletId`: `<USD_wallet_ID>` \
 `amountFromSourceWallet`: 20 \
-`exchangeRate`: `<requested_exchange_rate_boundary> [USD/ETH rate]` \
+`exchangeRate`: `<highest_acceptable_exchange_rate> [ETH/USD rate]` \
 }
 
 ### Buying 15 USD for ETH
@@ -85,7 +85,7 @@ Request body: { \
 `sourceWalletId`: `<ETH_wallet_ID>` \
 `destWalletId`: `<USD_wallet_ID>` \
 `amountToDestWallet`: 15 \
-`exchangeRate`: `<requested_exchange_rate_boundary> [USD/ETH rate]` \
+`exchangeRate`: `<highest_acceptable_exchange_rate> [ETH/USD rate]` \
 }
 
 ## Example code
@@ -118,7 +118,7 @@ res = requests.post(TRANSACTION_URL, headers={
     "sourceWalletId": USD_WALLET_ID,
     "destWalletId": BTC_WALLET_ID,
     "amountFromSourceWallet": 10,
-    "exchangeRate": 2.2,
+    "exchangeRate": 0.000024, # the highest requested USD/BTC exchange rate
 }, verify=False)
 
 print(res.json())
