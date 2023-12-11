@@ -23,7 +23,7 @@ res = requests.post(TRANSACTION_URL, headers={
     "sourceWalletId": USD_WALLET_ID,
     "destWalletId": BTC_WALLET_ID,
     "amountFromSourceWallet": 10,
-    "exchangeRate": 0.000024, # the highest requested USD/BTC exchange rate
+    "exchangeRate": 0.000023, # the lowest acceptable USD/BTC exchange rate
 }, verify=False)
 
 print(res.json())
